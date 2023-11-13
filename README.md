@@ -38,10 +38,23 @@ Para saber las IPs de los contenedores podemos utilizar el siguiente comando:
 
     docker network inspect [Nombre de la red] 
 # 6.¿Cual es la funcionalidad del apartado "ports" en docker compose?
-
+El apartado "ports" se utiliza para especificar cómo se deben mapear
+los puertos entre el host y el contenedor. Permite definir cómo las aplicaciones dentro de los contenedores pueden ser accedidas desde el host o desde fuera de la red del contenedor.
 # 7.¿Para que sirve el registro CNAME? Pon un ejemplo
+ El registro CNAME se utiliza en el DNS para asociar un nombre de dominio con otro. Es comúnmente utilizado para crear alias de nombres de dominio, lo que permite que un nombre de dominio tenga múltiples nombres asociados a él.
+
+ Supongamos que tienes un sitio web principal con el dominio "ejemplo.com" y decides crear un subdominio llamado "blog.ejemplo.com" que apunta a un servicio de blogs externo, como WordPress. En lugar de utilizar una dirección IP específica para apuntar al servidor de WordPress, puedes usar un registro CNAME para asociar "blog.ejemplo.com" con el dominio del servidor de WordPress.
+
+Entonces, agregarías un registro CNAME en la configuración de tu DNS de la siguiente manera:
+
+    blog.ejemplo.com CNAME wordpress-servidor.com
 
 # 8.¿Como puedo hacer para que la configuración de un contenedor DNS no se borre si creo otro contenedor?
+Para esto tenderemos que hacer uno de los volumenes, por ejemplo:
+
+    - ./conf:/etc/bind
+    - ./zonas:/var/lib/bind
+Estos archivos sirven para guardar la configuración.
 
 # 9.Añade una zona tiendadeelectronica.int en tu docker DNS que tenga
 *www a la IP 172.16.0.1*
