@@ -1,13 +1,42 @@
 # 1.Explica métodos para 'abrir' una consola/shell a un contenedor que se está ejecutando
+Se puede abrir desde la terminal con el comando docker exec -it, por ejemplo:
+
+    docker exec -it servidor bash
+
+También se puede abrir dando click derecho sobre el container y
+seleccionando “attach shell”.
 
 # 2.En el contenedor anterior con que opciones tiene que haber sido arrancado para poder interactuar con las entradas y salidas del contenedor
-
+Debe arrancarse con las opciones "-it".
+ 
 # 3.¿Cómo sería un fichero docker-compose para que dos contenedores se comuniquen entre si en una red solo de ellos?
+Para que dos contenedores se comuniquen entre si en una red solo de ellos debemos primero crear una network de la siguiente forma:
 
+    docker create network bind9_subnet
+
+Depués personalizariamos los parámetros de enta forma:
+    
+        docker network create \
+    --driver=bridge \
+    --subnet=172.28.0.0/16 \
+    --ip-range=172.28.5.0/24 \
+    --gateway=172.28.5.254 \
+
+Y en ambos contenedores deberiamos añadir la sección:
+
+    networks:
+            bind9_subnet: 
+            external: true
 # 4.¿Qué hay que añadir al fichero anterior para que un contenedor tenga la IP fija?
+Para que un contenedor tenga una ip fija tendríamos que añadir esta sección
 
+     networks:
+         bind9_subnet:
+             ipv4_address: 172.28.5.3
 # 5.¿Que comando de consola puedo usar para saber las ips de los contenedores anteriores? Filtra todo lo que puedas la salida.
+Para saber las IPs de los contenedores podemos utilizar el siguiente comando:
 
+    docker network inspect [Nombre de la red] 
 # 6.¿Cual es la funcionalidad del apartado "ports" en docker compose?
 
 # 7.¿Para que sirve el registro CNAME? Pon un ejemplo
