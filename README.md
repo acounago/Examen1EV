@@ -63,16 +63,28 @@ Estos archivos sirven para guardar la configuración.
 
 *un registro de texto con el contenido "1234ASDF"*
 
+Configuración de zona:
 ![ zona tiendaelectronica.int ](./img/zona.png)
 
+Configuracion named.conf.local
+![ configuracion named.conf.local ](./img/conflocal1.png)
 *Comprueba que todo funciona con el comando "dig"*
 
+*Primera comprobación*
 ![ comprobacion con dig ](./img/dig1.png)
 
+*Segunda comprobación*
 ![ comprobacion con dig ](./img/dig2.png)
 
+*Tercera comprobación*
 ![ comprobacion con dig ](./img/dig3.png)
 *Muestra en los logs que el servicio arranca correctamente*
-
+![ mestra de los logs para ver que el servicio funciona ](./img/logs.png)
 # 11.Realiza el apartado 9 en la máquina virtual con DNS
+*Añadimos la zona*
+![ zona tiendaelectronica.int ](./img/ZONA2.png)
+*configuramos named.conf.local*
+![ configuracion named.conf.local ](./img/conflocal.png)
+
+
 
