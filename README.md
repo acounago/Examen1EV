@@ -86,6 +86,8 @@ Configuracion named.conf.local
 *configuramos named.conf.local*
 ![ configuracion named.conf.local ](./img/conflocal.png)
 
+*Comprobación  logs:
+![ logs maquina virtual ](./img/logsMV.png)
 
 
 
