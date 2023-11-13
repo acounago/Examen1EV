@@ -56,15 +56,22 @@ Para esto tenderemos que hacer uno de los volumenes, por ejemplo:
     - ./zonas:/var/lib/bind
 Estos archivos sirven para guardar la configuración.
 
-# 9.Añade una zona tiendadeelectronica.int en tu docker DNS que tenga
+# 9.Añade una zona tiendaelectronica.int en tu docker DNS que tenga
 *www a la IP 172.16.0.1*
 
 *owncloud sea un CNAME de www*
 
 *un registro de texto con el contenido "1234ASDF"*
 
+![ zona tiendaelectronica.int ](./img/zona.png)
+
 *Comprueba que todo funciona con el comando "dig"*
 
+![ comprobacion con dig ](./img/dig1.png)
+
+![ comprobacion con dig ](./img/dig2.png)
+
+![ comprobacion con dig ](./img/dig3.png)
 *Muestra en los logs que el servicio arranca correctamente*
 
 # 11.Realiza el apartado 9 en la máquina virtual con DNS

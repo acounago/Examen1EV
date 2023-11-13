@@ -1,0 +1,7 @@
+zone "tiendaelectronica.int" {
+	type master;
+	file "/var/lib/bind/db.tiendaelectronica.int";
+	allow-query {
+		any;
+		};
+	};
